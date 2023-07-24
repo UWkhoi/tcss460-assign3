@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 3</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <h1>Health Metrics Calculator</h1>
+        </div>
+    </header>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+        <div class="calculator">
+            <!-- Calculator Form -->
+            <h2>Calculate Your Health Metrics</h2>
+            <form class="form">
+                <!-- Age Input -->
+                <div class="form-group">
+                    <label for="age">Age (in years)</label>
+                    <input type="number" id="age" class="form-control" placeholder="Enter your age">
+                </div>
+
+                <!-- Height Input -->
+                <div class="form-group">
+                    <label for="height">Height (in meters)</label>
+                    <input type="number" id="height" class="form-control" placeholder="Enter your height">
+                </div>
+
+                <!-- Weight Input -->
+                <div class="form-group">
+                    <label for="weight">Weight (in kg)</label>
+                    <input type="number" id="weight" class="form-control" placeholder="Enter your weight">
+                </div>
+
+                <!-- Calculate Button -->
+                <button type="button" class="btn btn-primary btn-calculate" id="calculate">Calculate</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Result Section -->
+    <section class="result-section">
+        <!-- Modal Dialog -->
+        <div class="modal" id="infoDialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h2>Health Metrics Results</h2>
+                    <span class="close">&times;</span>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <ul class="result-list">
+                        <!-- BMI Result -->
+                        <li><span class="result-label">BMI:</span> <span class="result-value" id="bmi"></span></li>
+
+                        <!-- Bodyfat Result -->
+                        <li><span class="result-label">Bodyfat %:</span> <span class="result-value" id="bodyfat"></span></li>
+
+                        <!-- BMR Result -->
+                        <li><span class="result-label">BMR:</span> <span class="result-value" id="bmr"></span></li>
+
+                        <!-- Daily Calories Result -->
+                        <li><span class="result-label">Daily Calories:</span> <span class="result-value" id="dailycal"></span></li>
+                    </ul>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                    <p id="footer-info"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="nodeApp.js"></script>
+
+    <!-- Modal Script -->
+    <script>
+        const modal = document.getElementById('infoDialog');
+        const closeBtn = document.querySelector('.close');
+
+        // Function to close the modal when the close button is clicked
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        };
+
+        // Function to close the modal when clicking outside the modal content
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+</body>
+
+</html>
